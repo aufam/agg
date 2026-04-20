@@ -63,14 +63,14 @@ impl Default for Config {
     }
 }
 
-#[derive(Clone, ArgEnum, Default)]
+#[derive(serde::Deserialize, Clone, ArgEnum, Default)]
 pub enum Renderer {
     #[default]
     Resvg,
     Fontdue,
 }
 
-#[derive(Clone, Debug, ArgEnum, Default)]
+#[derive(serde::Deserialize, Clone, Debug, ArgEnum, Default)]
 pub enum Theme {
     Asciinema,
     #[default]
@@ -89,6 +89,7 @@ pub enum Theme {
     #[clap(skip)]
     Custom(String),
     #[clap(skip)]
+    #[serde(skip_deserializing)]
     Embedded(theme::Theme),
 }
 
