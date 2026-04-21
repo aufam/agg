@@ -110,7 +110,7 @@ pub enum Theme {
     GruvboxDark,
 
     #[clap(skip)]
-    #[serde(skip_deserializing)]
+    #[serde(rename = "custom")]
     Custom(String),
 
     #[clap(skip)]
