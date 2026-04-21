@@ -72,22 +72,47 @@ pub enum Renderer {
 
 #[derive(serde::Deserialize, Clone, Debug, ArgEnum, Default)]
 pub enum Theme {
+    #[serde(rename = "asciinema")]
     Asciinema,
+
     #[default]
+    #[serde(rename = "dracula")]
     Dracula,
+
+    #[serde(rename = "github-dark")]
     GithubDark,
+
+    #[serde(rename = "github-light")]
     GithubLight,
+
+    #[serde(rename = "kanagawa")]
     Kanagawa,
+
+    #[serde(rename = "kanagawa-dragon")]
     KanagawaDragon,
+
+    #[serde(rename = "kanagawa-light")]
     KanagawaLight,
+
+    #[serde(rename = "monokai")]
     Monokai,
+
+    #[serde(rename = "nord")]
     Nord,
+
+    #[serde(rename = "solarized-dark")]
     SolarizedDark,
+
+    #[serde(rename = "solarized-light")]
     SolarizedLight,
+
+    #[serde(rename = "gruvbox-dark")]
     GruvboxDark,
 
     #[clap(skip)]
+    #[serde(skip_deserializing)]
     Custom(String),
+
     #[clap(skip)]
     #[serde(skip_deserializing)]
     Embedded(theme::Theme),
